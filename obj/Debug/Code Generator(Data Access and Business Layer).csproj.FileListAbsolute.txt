@@ -1,0 +1,13 @@
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\Code Generator(Data Access and Business Layer).exe.config
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\Code Generator(Data Access and Business Layer).exe
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\Code Generator(Data Access and Business Layer).pdb
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\Business_Layer.dll
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\Business_Layer.pdb
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).csproj.AssemblyReference.cache
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code_Generator_Data_Access_and_Business_Layer_.Form1.resources
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code_Generator_Data_Access_and_Business_Layer_.Properties.Resources.resources
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).csproj.GenerateResource.cache
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).csproj.CoreCompileInputs.cache
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).csproj.CopyComplete
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).exe
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).pdb
