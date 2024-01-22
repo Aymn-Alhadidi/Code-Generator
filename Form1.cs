@@ -16,11 +16,32 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
         public Form1()
         {
             InitializeComponent();
+  
         }
+
+
+        static GenerateDataAccessLayer.TableColumnInfo PrimaryColumn = new GenerateDataAccessLayer.TableColumnInfo();
+
+        static List<GenerateDataAccessLayer.TableColumnInfo> ListTableContact = new List<GenerateDataAccessLayer.TableColumnInfo>();
+
+        static string ConnectionString = "Server = .; Database = ContactsDB; User ID = sa ; Password = sa123456";
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
 
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(txtConnectionString.Text, txtDataBaseName.Text,txtTableName.Text );
+            GenerateDataAccessLayer.LoadListWithTableInfo(TableInfo, ref ListTableContact, ref PrimaryColumn);
+
+            foreach(GenerateDataAccessLayer.TableColumnInfo columnInfo in ListTableContact)
+            {
+                Text1.Text += $"Column Name: {columnInfo.ColumnName}, Data Type: {columnInfo.DataType}, Allows Null: {columnInfo.AllowNull}, Is Primary Key: {columnInfo.IsPrimaryKey}\n";
+            }
         }
     }
 }
