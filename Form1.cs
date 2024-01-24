@@ -38,10 +38,15 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
             DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(txtConnectionString.Text, txtDataBaseName.Text,txtTableName.Text );
             GenerateDataAccessLayer.LoadListWithTableInfo(TableInfo, ref ListTableContact, ref PrimaryColumn);
 
-            foreach(GenerateDataAccessLayer.TableColumnInfo columnInfo in ListTableContact)
-            {
-                Text1.Text += $"Column Name: {columnInfo.ColumnName}, Data Type: {columnInfo.DataType}, Allows Null: {columnInfo.AllowNull}, Is Primary Key: {columnInfo.IsPrimaryKey}\n";
-            }
+            //foreach(GenerateDataAccessLayer.TableColumnInfo columnInfo in ListTableContact)
+            //{
+            //    Text1.Text += $"Column Name: {columnInfo.ColumnName}, Data Type: {columnInfo.DataType}, Allows Null: {columnInfo.AllowNull}, Is Primary Key: {columnInfo.IsPrimaryKey}\n";
+            //}
+
+            Text1.Text = GenerateDataAccessLayer.GetAllContacts(txtTableName.Text);
+
         }
+
+
     }
 }

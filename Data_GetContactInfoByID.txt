@@ -1,0 +1,52 @@
+        public static bool Get##ClassName##InfoBy##PrimaryNameColumn##(##Parameters##)
+        {
+            bool isFound = false;
+            
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSetting.ConnectionString);
+
+
+            string query = @"SELECT * FROM ##TableName## WHERE ##PrimaryNameColumn##= @##PrimaryNameColumn##;";
+
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@##PrimaryNameColumn##", ##PrimaryNameColumn##);
+
+
+            try
+            {
+                Connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+
+                if(Reader.Read())
+                {
+                    isFound = true;
+
+                    ##InnerBodyOfGetContact##
+                }
+
+                else
+                {
+                    isFound = false;
+                }
+
+
+                Reader.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex);
+                isFound = false;
+            }
+
+            finally
+            {
+                Connection.Close();
+            }
+
+            return isFound;
+
+        }

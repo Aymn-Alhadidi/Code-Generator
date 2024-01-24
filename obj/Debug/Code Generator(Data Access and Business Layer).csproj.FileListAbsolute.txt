@@ -11,3 +11,5 @@ D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Cod
 D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).csproj.CopyComplete
 D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).exe
 D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).pdb
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\DataAccessLayer.dll
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\DataAccessLayer.pdb

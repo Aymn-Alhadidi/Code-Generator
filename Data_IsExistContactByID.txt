@@ -1,11 +1,11 @@
-        public static bool Delete##ClassName##(##PrimaryTypeColumn## ##PrimaryNameColumn##)
+        public static bool Is##ClassName##Exist(##PrimaryTypeColumn## ##PrimaryNameColumn##)
         {
-            int RowAffected = 0;
+            bool isFound = false;
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSetting.ConnectionString);
 
 
-            string query = ##Query##;
+            string query = @"SELECT Found = 1 FROM ##TableName## WHERE ##PrimaryNameColumn## = @##PrimaryNameColumn##";
 
 
             SqlCommand Command = new SqlCommand(query, Connection);
@@ -16,13 +16,17 @@
             try
             {
                 Connection.Open();
-                RowAffected = Command.ExecuteNonQuery();
+                SqlDataReader Reader = Command.ExecuteReader();
+
+                isFound = Reader.HasRows;
+                Reader.Close();
 
             }
 
             catch (Exception ex)
             {
                 //Console.WriteLine("Error: " + ex);
+                isFound = false;
             }
 
             finally
@@ -30,5 +34,5 @@
                 Connection.Close();
             }
 
-            return (RowAffected > 0);
+            return isFound;
         }

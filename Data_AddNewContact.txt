@@ -1,0 +1,40 @@
+        public static int AddNew##ClassName##(##Parameters##)
+        {
+
+            int ContactID = -1;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSetting.ConnectionString);
+
+            string query = ##Query##
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+
+            ##ParametersAddWithValue##
+
+            try
+            {
+                Connection.Open();
+
+                object Result = Command.ExecuteScalar();
+
+                if (Result != null && int.TryParse(Result.ToString(), out int insertedID))
+                {
+                    ContactID = insertedID;
+                }
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex);
+            }
+
+            finally
+            {
+                Connection.Close();
+            }
+
+            return ContactID;
+        }

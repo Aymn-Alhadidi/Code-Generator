@@ -1,23 +1,25 @@
-        public static bool Delete##ClassName##(##PrimaryTypeColumn## ##PrimaryNameColumn##)
+        public static DataTable GetAll##TableName##()
         {
-            int RowAffected = 0;
+            DataTable TD = new DataTable();
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSetting.ConnectionString);
 
 
-            string query = ##Query##;
-
+            string query = @"SELECT * FROM ##TableName## ";
 
             SqlCommand Command = new SqlCommand(query, Connection);
-
-            Command.Parameters.AddWithValue("@##PrimaryNameColumn##", ##PrimaryNameColumn##);
-
 
             try
             {
                 Connection.Open();
-                RowAffected = Command.ExecuteNonQuery();
+                SqlDataReader Reader = Command.ExecuteReader();
 
+                if (Reader.HasRows)
+                {
+                    TD.Load(Reader);
+                }
+
+                Reader.Close();
             }
 
             catch (Exception ex)
@@ -30,5 +32,5 @@
                 Connection.Close();
             }
 
-            return (RowAffected > 0);
+            return TD;
         }

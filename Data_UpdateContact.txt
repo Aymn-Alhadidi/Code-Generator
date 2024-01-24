@@ -1,0 +1,33 @@
+        public static bool Update##ClassName##(##Parameters##)
+        {
+
+            int RowAffected = 0;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSetting.ConnectionString);
+            string query = ##Query##;
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            ##ParametersAddWithValue##
+
+
+            try
+            {
+                Connection.Open();
+                RowAffected = Command.ExecuteNonQuery();
+
+            }
+
+
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            finally
+            {
+                Connection.Close();
+            }
+
+            return (RowAffected > 0);
+        }
