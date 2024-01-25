@@ -35,6 +35,8 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtClassName = new System.Windows.Forms.TextBox();
             this.btnFile = new System.Windows.Forms.Button();
+            this.cbDataBases = new System.Windows.Forms.ComboBox();
+            this.cbTables = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtDataBaseName
@@ -100,11 +102,33 @@
             this.btnFile.Text = "button1";
             this.btnFile.UseVisualStyleBackColor = true;
             // 
+            // cbDataBases
+            // 
+            this.cbDataBases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDataBases.FormattingEnabled = true;
+            this.cbDataBases.Location = new System.Drawing.Point(599, 74);
+            this.cbDataBases.Name = "cbDataBases";
+            this.cbDataBases.Size = new System.Drawing.Size(189, 24);
+            this.cbDataBases.TabIndex = 7;
+            this.cbDataBases.SelectedIndexChanged += new System.EventHandler(this.cbDataBases_SelectedIndexChanged);
+            // 
+            // cbTables
+            // 
+            this.cbTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTables.FormattingEnabled = true;
+            this.cbTables.Location = new System.Drawing.Point(599, 161);
+            this.cbTables.Name = "cbTables";
+            this.cbTables.Size = new System.Drawing.Size(189, 24);
+            this.cbTables.TabIndex = 8;
+            this.cbTables.SelectedIndexChanged += new System.EventHandler(this.cbTables_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 639);
+            this.Controls.Add(this.cbTables);
+            this.Controls.Add(this.cbDataBases);
             this.Controls.Add(this.btnFile);
             this.Controls.Add(this.txtClassName);
             this.Controls.Add(this.btnLoad);
@@ -129,6 +153,8 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.TextBox txtClassName;
         private System.Windows.Forms.Button btnFile;
+        private System.Windows.Forms.ComboBox cbDataBases;
+        private System.Windows.Forms.ComboBox cbTables;
     }
 }
 
