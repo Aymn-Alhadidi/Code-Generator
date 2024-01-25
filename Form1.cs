@@ -43,7 +43,7 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
             //    Text1.Text += $"Column Name: {columnInfo.ColumnName}, Data Type: {columnInfo.DataType}, Allows Null: {columnInfo.AllowNull}, Is Primary Key: {columnInfo.IsPrimaryKey}\n";
             //}
 
-            Text1.Text = GenerateDataAccessLayer.GetAllContacts(txtTableName.Text);
+            Text1.Text = GenerateBusinessLayer.BusinessLayer_FindContactByColumnName(ListTableContact, GenerateDataAccessLayer.FindColumn(ListTableContact, "CountryName"),GenerateDataAccessLayer.ConstructFunctionParameter(ListTableContact, true),GenerateDataAccessLayer.ConstructFunctionParameter(ListTableContact) ,txtClassName.Text);
 
         }
 
