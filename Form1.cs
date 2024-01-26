@@ -28,7 +28,6 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
         static string ConnectionString = "Server = .; Database = ContactsDB; User ID = sa ; Password = sa123456";
 
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -90,13 +89,13 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(txtConnectionString.Text, txtDataBaseName.Text, txtTableName.Text);
-            GenerateDataAccessLayer.LoadListWithTableInfo(TableInfo, ref ListTableContact, ref PrimaryColumn);
+            //DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(txtConnectionString.Text, "", "");
+            //GenerateDataAccessLayer.LoadListWithTableInfo(TableInfo, ref ListTableContact, ref PrimaryColumn);
 
-            List<string> Hello = clsDataBaseConnection.DisplayDatabases(ConnectionString);
+            List<string> DataBases = clsDataBaseConnection.DisplayDatabases(ConnectionString);
 
             cbDataBases.Items.Clear();
-            foreach (string i in Hello)
+            foreach (string i in DataBases)
             {
                 cbDataBases.Items.Add(i);
             }
@@ -104,10 +103,10 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
 
         private void cbDataBases_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> Hello = clsDataBaseConnection.DisplayTables(ConnectionString, cbDataBases.SelectedItem.ToString());
+            List<string> Tables = clsDataBaseConnection.DisplayTables(ConnectionString, cbDataBases.SelectedItem.ToString());
 
             cbTables.Items.Clear();
-            foreach (string i in Hello)
+            foreach (string i in Tables)
             {
                 cbTables.Items.Add(i);
             }
@@ -124,16 +123,6 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
             setTableColumnsInListView();
         }
 
-        private void listViewColumns_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            
-        }
-
-        private void btnFile_Click(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void btnGenerateDataAccessLayer_Click(object sender, EventArgs e)
         {
@@ -145,7 +134,18 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
 
             //Text1.Text = GenerateBusinessLayer.BusinessLayer_GetAllIsContactExist(ListSelectedRows, txtClassName.Text);
 
-            //Text1.Text = GenerateBusinessLayer.Generate_BusinessLayer(ListTableContact,ListSelectedRows,PrimaryColumn,cbTables.Text.ToString(),txtClassName.Text);
+            txtBusinessLayer.Text = GenerateBusinessLayer.Generate_BusinessLayer(ListTableContact,ListSelectedRows,PrimaryColumn,cbTables.Text.ToString(),txtClassName.Text);
+        }
+
+        private void btnCopyDataAccessResult_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(Text1.Text);
+        }
+
+        private void btnCopyBusinessLayer_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtBusinessLayer.Text);
+
         }
     }
 }
