@@ -1,0 +1,22 @@
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNew##ClassName##())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+                    return _Update##ClassName##();
+            }
+
+            return false;
+        }
