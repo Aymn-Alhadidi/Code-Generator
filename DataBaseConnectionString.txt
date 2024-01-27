@@ -1,0 +1,1 @@
+Server = .; Database = ContactsDB; User ID = sa; Password = sa123456

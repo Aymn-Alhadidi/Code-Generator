@@ -25,8 +25,8 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
         static List<GenerateDataAccessLayer.TableColumnInfo> ListTableContact = new List<GenerateDataAccessLayer.TableColumnInfo>();
         static List<GenerateDataAccessLayer.TableColumnInfo> ListSelectedRows = new List<GenerateDataAccessLayer.TableColumnInfo>();
 
-        static string ConnectionString = "Server = .; Database = ContactsDB; User ID = sa ; Password = sa123456";
-
+        //static public string ConnectionString = "Server = .; Database = ContactsDB; User ID = sa ; Password = sa123456";
+        static public string ConnectionString = "";
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -92,6 +92,8 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
             //DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(txtConnectionString.Text, "", "");
             //GenerateDataAccessLayer.LoadListWithTableInfo(TableInfo, ref ListTableContact, ref PrimaryColumn);
 
+            ConnectionString = clsDataBaseConnection.ReadTextFromFile("D:\\mohammed abohdhd\\Code Generator(Data Access and Business Layer)\\DataBaseConnectionString.txt");
+
             List<string> DataBases = clsDataBaseConnection.DisplayDatabases(ConnectionString);
 
             cbDataBases.Items.Clear();
@@ -126,15 +128,18 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
 
         private void btnGenerateDataAccessLayer_Click(object sender, EventArgs e)
         {
+            Text1.Text = "";
+            txtBusinessLayer.Text = "";
+
             //Load Checked subItem in List
             ListView.CheckedListViewItemCollection checkedItems = listViewColumns.CheckedItems;
             FullListWithCheckedItem(checkedItems);
 
              Text1.Text = GenerateDataAccessLayer.Generate_DataAccessLayer(ListTableContact, ListSelectedRows, PrimaryColumn, cbTables.SelectedItem.ToString(), txtClassName.Text);
 
-            //Text1.Text = GenerateBusinessLayer.BusinessLayer_GetAllIsContactExist(ListSelectedRows, txtClassName.Text);
-
             txtBusinessLayer.Text = GenerateBusinessLayer.Generate_BusinessLayer(ListTableContact,ListSelectedRows,PrimaryColumn,cbTables.Text.ToString(),txtClassName.Text);
+
+            txtclsDataAccessSetting.Text = clsDataBaseConnection.GenerateDataBaseConnectionClass(ConnectionString);
         }
 
         private void btnCopyDataAccessResult_Click(object sender, EventArgs e)
@@ -146,6 +151,30 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
         {
             Clipboard.SetText(txtBusinessLayer.Text);
 
+        }
+
+        private void btnSetDataBaseConnection_Click(object sender, EventArgs e)
+        {
+            frmDataBaseConnectionString frmDataBaseConnection = new frmDataBaseConnectionString();
+            frmDataBaseConnection.ShowDialog();
+            //MessageBox.Show("");
+        }
+
+        private void btnCopyclsConnectionString_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtclsDataAccessSetting.Text);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            //cbDataBases.SelectedItem = null;
+            //cbTables.SelectedItem = null;
+
+            _RemoveItemsFromListView();
+
+            txtBusinessLayer.Text = "";
+            txtclsDataAccessSetting.Text = "";
+            Text1.Text = "";
         }
     }
 }

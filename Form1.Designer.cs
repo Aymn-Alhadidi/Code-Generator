@@ -50,12 +50,16 @@
             this.btnCopyBusinessLayer = new System.Windows.Forms.Button();
             this.txtBusinessLayer = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnSetDataBaseConnection = new System.Windows.Forms.Button();
+            this.txtclsDataAccessSetting = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnCopyclsConnectionString = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Text1
             // 
-            this.Text1.BackColor = System.Drawing.SystemColors.InfoText;
-            this.Text1.ForeColor = System.Drawing.SystemColors.Window;
+            this.Text1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(34)))));
+            this.Text1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(203)))), ((int)(((byte)(7)))));
             this.Text1.Location = new System.Drawing.Point(537, 81);
             this.Text1.Multiline = true;
             this.Text1.Name = "Text1";
@@ -66,7 +70,7 @@
             // 
             // txtConnectionString
             // 
-            this.txtConnectionString.Location = new System.Drawing.Point(26, 305);
+            this.txtConnectionString.Location = new System.Drawing.Point(537, 466);
             this.txtConnectionString.Multiline = true;
             this.txtConnectionString.Name = "txtConnectionString";
             this.txtConnectionString.Size = new System.Drawing.Size(444, 38);
@@ -126,7 +130,7 @@
             this.listViewColumns.GridLines = true;
             this.listViewColumns.HideSelection = false;
             this.listViewColumns.HoverSelection = true;
-            this.listViewColumns.Location = new System.Drawing.Point(26, 366);
+            this.listViewColumns.Location = new System.Drawing.Point(26, 354);
             this.listViewColumns.Name = "listViewColumns";
             this.listViewColumns.Size = new System.Drawing.Size(373, 271);
             this.listViewColumns.TabIndex = 9;
@@ -224,6 +228,7 @@
             this.btnReset.TabIndex = 16;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // label5
             // 
@@ -237,9 +242,9 @@
             // 
             // btnCopyBusinessLayer
             // 
-            this.btnCopyBusinessLayer.Location = new System.Drawing.Point(1074, 490);
+            this.btnCopyBusinessLayer.Location = new System.Drawing.Point(1074, 486);
             this.btnCopyBusinessLayer.Name = "btnCopyBusinessLayer";
-            this.btnCopyBusinessLayer.Size = new System.Drawing.Size(75, 34);
+            this.btnCopyBusinessLayer.Size = new System.Drawing.Size(75, 38);
             this.btnCopyBusinessLayer.TabIndex = 18;
             this.btnCopyBusinessLayer.Text = "Copy";
             this.btnCopyBusinessLayer.UseVisualStyleBackColor = true;
@@ -247,8 +252,8 @@
             // 
             // txtBusinessLayer
             // 
-            this.txtBusinessLayer.BackColor = System.Drawing.SystemColors.InfoText;
-            this.txtBusinessLayer.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtBusinessLayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(34)))));
+            this.txtBusinessLayer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(203)))), ((int)(((byte)(7)))));
             this.txtBusinessLayer.Location = new System.Drawing.Point(537, 530);
             this.txtBusinessLayer.Multiline = true;
             this.txtBusinessLayer.Name = "txtBusinessLayer";
@@ -267,11 +272,58 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "Business Layer";
             // 
+            // btnSetDataBaseConnection
+            // 
+            this.btnSetDataBaseConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetDataBaseConnection.Location = new System.Drawing.Point(26, 311);
+            this.btnSetDataBaseConnection.Name = "btnSetDataBaseConnection";
+            this.btnSetDataBaseConnection.Size = new System.Drawing.Size(189, 37);
+            this.btnSetDataBaseConnection.TabIndex = 21;
+            this.btnSetDataBaseConnection.Text = "Data Base Connection ";
+            this.btnSetDataBaseConnection.UseVisualStyleBackColor = true;
+            this.btnSetDataBaseConnection.Click += new System.EventHandler(this.btnSetDataBaseConnection_Click);
+            // 
+            // txtclsDataAccessSetting
+            // 
+            this.txtclsDataAccessSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(34)))));
+            this.txtclsDataAccessSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(203)))), ((int)(((byte)(7)))));
+            this.txtclsDataAccessSetting.Location = new System.Drawing.Point(26, 663);
+            this.txtclsDataAccessSetting.Multiline = true;
+            this.txtclsDataAccessSetting.Name = "txtclsDataAccessSetting";
+            this.txtclsDataAccessSetting.ReadOnly = true;
+            this.txtclsDataAccessSetting.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtclsDataAccessSetting.Size = new System.Drawing.Size(373, 246);
+            this.txtclsDataAccessSetting.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(22, 640);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(175, 20);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "clsDataAccessSetting";
+            // 
+            // btnCopyclsConnectionString
+            // 
+            this.btnCopyclsConnectionString.Location = new System.Drawing.Point(324, 626);
+            this.btnCopyclsConnectionString.Name = "btnCopyclsConnectionString";
+            this.btnCopyclsConnectionString.Size = new System.Drawing.Size(75, 34);
+            this.btnCopyclsConnectionString.TabIndex = 24;
+            this.btnCopyclsConnectionString.Text = "Copy";
+            this.btnCopyclsConnectionString.UseVisualStyleBackColor = true;
+            this.btnCopyclsConnectionString.Click += new System.EventHandler(this.btnCopyclsConnectionString_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 922);
+            this.Controls.Add(this.btnCopyclsConnectionString);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtclsDataAccessSetting);
+            this.Controls.Add(this.btnSetDataBaseConnection);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtBusinessLayer);
             this.Controls.Add(this.btnCopyBusinessLayer);
@@ -321,6 +373,10 @@
         private System.Windows.Forms.Button btnCopyBusinessLayer;
         private System.Windows.Forms.TextBox txtBusinessLayer;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSetDataBaseConnection;
+        private System.Windows.Forms.TextBox txtclsDataAccessSetting;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnCopyclsConnectionString;
     }
 }
 

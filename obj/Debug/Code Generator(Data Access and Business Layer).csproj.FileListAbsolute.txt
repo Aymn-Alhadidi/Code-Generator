@@ -13,3 +13,4 @@ D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Cod
 D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code Generator(Data Access and Business Layer).pdb
 D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\DataAccessLayer.dll
 D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\bin\Debug\DataAccessLayer.pdb
+D:\mohammed abohdhd\Code Generator(Data Access and Business Layer)\obj\Debug\Code_Generator_Data_Access_and_Business_Layer_.frmDataBaseConnectionString.resources
