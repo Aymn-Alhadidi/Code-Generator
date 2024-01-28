@@ -28,6 +28,59 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
         //static public string ConnectionString = "Server = .; Database = ContactsDB; User ID = sa ; Password = sa123456";
         static public string ConnectionString = "";
 
+
+         private bool _ErrorDataBase()
+        {
+            if(cbDataBases.SelectedItem == null)
+            {
+                errorProvider1.SetError(cbDataBases, "Choice Data Base");
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool _ErrorTables()
+        {
+            if (cbTables.SelectedItem == null)
+            {
+                errorProvider1.SetError(cbTables, "Choice Table");
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool _ErrorclassName()
+        {
+            if (string.IsNullOrWhiteSpace(txtClassName.Text))
+            {
+                errorProvider1.SetError(txtClassName, "Write The Name Of Class");
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool _ErrorDataBaseConnection()
+        {
+            string DataBaseConnection = clsDataBaseConnection.ReadTextFromFile("D:\\mohammed abohdhd\\Code Generator(Data Access and Business Layer)\\DataBaseConnectionString.txt");
+            if (string.IsNullOrWhiteSpace(DataBaseConnection))
+            {
+                errorProvider1.SetError(btnSetDataBaseConnection, "Set Data Base Connection");
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool _CheckErrors()
+        {
+            if (_ErrorDataBase() || _ErrorTables() || _ErrorclassName() || _ErrorDataBaseConnection())
+                return true;
+
+            return false;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -89,9 +142,6 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            //DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(txtConnectionString.Text, "", "");
-            //GenerateDataAccessLayer.LoadListWithTableInfo(TableInfo, ref ListTableContact, ref PrimaryColumn);
-
             ConnectionString = clsDataBaseConnection.ReadTextFromFile("D:\\mohammed abohdhd\\Code Generator(Data Access and Business Layer)\\DataBaseConnectionString.txt");
 
             List<string> DataBases = clsDataBaseConnection.DisplayDatabases(ConnectionString);
@@ -119,15 +169,21 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
         {
 
             ListTableContact.Clear();
-            DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(txtConnectionString.Text, cbDataBases.SelectedItem.ToString(), cbTables.SelectedItem.ToString());
+            DataTable TableInfo = GenerateDataAccessLayer.GetTableInformations(ConnectionString, cbDataBases.SelectedItem.ToString(), cbTables.SelectedItem.ToString());
             GenerateDataAccessLayer.LoadListWithTableInfo(TableInfo, ref ListTableContact, ref PrimaryColumn);
 
+            txtClassName.Text = GenerateBusinessLayer.PredictClassName(cbTables.SelectedItem.ToString());
             setTableColumnsInListView();
         }
 
 
         private void btnGenerateDataAccessLayer_Click(object sender, EventArgs e)
         {
+
+            if (_CheckErrors())
+                return;
+
+
             Text1.Text = "";
             txtBusinessLayer.Text = "";
 
@@ -157,7 +213,7 @@ namespace Code_Generator_Data_Access_and_Business_Layer_
         {
             frmDataBaseConnectionString frmDataBaseConnection = new frmDataBaseConnectionString();
             frmDataBaseConnection.ShowDialog();
-            //MessageBox.Show("");
+
         }
 
         private void btnCopyclsConnectionString_Click(object sender, EventArgs e)

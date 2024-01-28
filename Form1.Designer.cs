@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Text1 = new System.Windows.Forms.TextBox();
-            this.txtConnectionString = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtClassName = new System.Windows.Forms.TextBox();
             this.cbDataBases = new System.Windows.Forms.ComboBox();
@@ -54,6 +54,8 @@
             this.txtclsDataAccessSetting = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCopyclsConnectionString = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // Text1
@@ -67,15 +69,6 @@
             this.Text1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Text1.Size = new System.Drawing.Size(612, 379);
             this.Text1.TabIndex = 2;
-            // 
-            // txtConnectionString
-            // 
-            this.txtConnectionString.Location = new System.Drawing.Point(537, 466);
-            this.txtConnectionString.Multiline = true;
-            this.txtConnectionString.Name = "txtConnectionString";
-            this.txtConnectionString.Size = new System.Drawing.Size(444, 38);
-            this.txtConnectionString.TabIndex = 3;
-            this.txtConnectionString.Text = "Server = .; Database = ContactsDB; User ID = sa ; Password = sa123456";
             // 
             // btnLoad
             // 
@@ -95,7 +88,6 @@
             this.txtClassName.Name = "txtClassName";
             this.txtClassName.Size = new System.Drawing.Size(189, 26);
             this.txtClassName.TabIndex = 5;
-            this.txtClassName.Text = "Country";
             // 
             // cbDataBases
             // 
@@ -315,6 +307,10 @@
             this.btnCopyclsConnectionString.UseVisualStyleBackColor = true;
             this.btnCopyclsConnectionString.Click += new System.EventHandler(this.btnCopyclsConnectionString_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,11 +336,11 @@
             this.Controls.Add(this.cbDataBases);
             this.Controls.Add(this.txtClassName);
             this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.txtConnectionString);
             this.Controls.Add(this.Text1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,7 +348,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox Text1;
-        private System.Windows.Forms.TextBox txtConnectionString;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.TextBox txtClassName;
         private System.Windows.Forms.ComboBox cbDataBases;
@@ -377,6 +372,7 @@
         private System.Windows.Forms.TextBox txtclsDataAccessSetting;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCopyclsConnectionString;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
